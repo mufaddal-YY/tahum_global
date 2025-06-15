@@ -17,13 +17,12 @@ import {
   DropdownMenuSub,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { servicesData } from "@/lib/constants";
 
 const MobileNav = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <AlignJustify className="text-white cursor-pointer" />
+        <AlignJustify className="text-primary cursor-pointer" />
       </SheetTrigger>
       <SheetContent className="z-[1001] bg-primary">
         <SheetTitle></SheetTitle>
@@ -42,7 +41,7 @@ const MobileNav = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-106">
               <DropdownMenuGroup>
-                {servicesData.map((items) => (
+                {/* {servicesData.map((items) => (
                   <DropdownMenuSub key={items.name}>
                     <Link
                       className="cursor-pointer"
@@ -54,7 +53,7 @@ const MobileNav = () => {
                       </DropdownMenuItem>
                     </Link>
                   </DropdownMenuSub>
-                ))}
+                ))} */}
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -63,6 +62,11 @@ const MobileNav = () => {
             href={"/about"}
             className="text-md font-semibold text-white px-4 py-2">
             <SheetClose>About</SheetClose>
+          </Link>
+          <Link
+            href={"/blog"}
+            className="text-md font-semibold text-white px-4 py-2">
+            <SheetClose>Blog</SheetClose>
           </Link>
 
           <Link

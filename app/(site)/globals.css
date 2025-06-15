@@ -120,3 +120,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+.container {
+  @apply w-full px-4 mx-auto items-center;
+}
+
+.bg-primary {
+  @apply bg-[#1D3974];
+}
+
+.bg-secondary {
+  @apply bg-[#D7AF28];
+}
+
+.text-primary {
+  @apply text-[#1D3974];
+}
+
+.text-secondary {
+  @apply text-[#D7AF28];
+}
+
+.shadow-custom {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating-hover:hover {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
