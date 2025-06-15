@@ -18,8 +18,8 @@ import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
-    <main className="bg-white fixed w-full top-0 z-[1000]">
-      <header className="container py-3">
+    <main className="bg-white fixed w-full top-10 z-[1000]">
+      <header className="container py-1">
         <article className="flex flex-row justify-between items-center gap-4">
           <div className="flex flex-row justify-between items-center gap-4">
             <div>

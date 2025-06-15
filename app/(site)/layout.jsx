@@ -4,6 +4,9 @@ import { Poppins } from "next/font/google";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
 import Header from "@/components/Nav/Header";
+import Footer from "@/components/Nav/Footer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,11 +20,11 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} antialiased`}>
         <TopBar/>
         <Header />
-        <main className="mt-12">
+        <main className="mt-26">
           {children}
           <Toaster closeButton position="top-right" richColors />
         </main>
-        {/* <Footer /> */}
+        <Footer />
         {/* <Suspense>
           <ProgressBars />
         </Suspense> */}

@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/public/logo_b.png";
+import Logo from "@/public/logo.png";
 import { MdEmail, MdCall } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { servicesData } from "@/lib/constants";
 
 const Footer = () => {
 
@@ -41,11 +40,11 @@ const Footer = () => {
             </div>
             <div className="py-2">
               <ul className="flex flex-col gap-4 text-sm">
-                {servicesData.map((item) => (
+                {/* {servicesData.map((item) => (
                   <li className="text-md capitalize" key={item?.name}>
                     <Link href={`/${item?.link}`}>{item?.name}</Link>
                   </li>
-                ))}
+                ))} */}
               </ul>
             </div>
           </div>

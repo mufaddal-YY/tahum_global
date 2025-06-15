@@ -8,40 +8,35 @@ const TopBar = () => {
   return (
     <main className="bg-primary w-full fixed top-0 z-[1000]">
       <section className="container p-2">
-        <article className="flex flex-row justify-between ">
-          <div className="flex flex-row ">
-            <Link target="_blank" href={"/"}>
-              <Button
-                variant="outline"
-                className="flex gap-2 text-white bg-transparent font-semibold items-center">
-                <IoLogoWhatsapp className="" /> Chat with us
-              </Button>
+        <article className="flex justify-between items-center w-full">
+          {/* Left item on mobile, hidden on large */}
+          <Link
+            target="_blank"
+            className="flex gap-2 items-center text-md font-medium text-white lg:hidden"
+            href={"/"}>
+            <MdEmail /> Email us
+          </Link>
+
+          {/* Right item on mobile, hidden on large */}
+          <Link
+            className="flex gap-2 items-center text-md font-medium text-white lg:hidden"
+            href={"/"}>
+            <MdCall /> +91-0000000000
+          </Link>
+
+          {/* Both items together on right side for lg and up */}
+          <div className="hidden lg:flex gap-4 ml-auto">
+            <Link
+              target="_blank"
+              className="flex gap-2 items-center text-md font-medium text-white"
+              href={"/"}>
+              <MdEmail /> Email us
             </Link>
 
-            <a href={"/"}>
-              <Button
-                variant="outline"
-                className="ml-4 flex gap-2 text-white bg-transparent font-semibold items-center">
-                <MdEmail /> Email us
-              </Button>
-            </a>
-
-            <Link href={"/"} className="md:hidden lg:hidden flex">
-              <Button
-                variant="outline"
-                className="ml-4 flex gap-2 text-white bg-transparent font-semibold items-center">
-                Get Quote
-              </Button>
-            </Link>
-          </div>
-
-          <div className="hidden md:flex lg:flex">
-            <Link href={"/"}>
-              <Button
-                variant="outline"
-                className="flex gap-2 text-white bg-transparent font-semibold items-center">
-                <MdCall /> +91-0000000000
-              </Button>
+            <Link
+              className="flex gap-2 items-center text-md font-medium text-white"
+              href={"/"}>
+              <MdCall /> +91-0000000000
             </Link>
           </div>
         </article>
