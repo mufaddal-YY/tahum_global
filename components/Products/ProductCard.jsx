@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 const ProductCard = ({ categoryDetail, data }) => {
   return (
     <div className="flex flex-col lg:flex-row gap-4 rounded-2xl border-2 border-gray-100">
-      <div className="relative w-full h-[300px] rounded-xl overflow-hidden">
+      <div className="relative w-full lg:w-[300px] h-[300px] rounded-xl overflow-hidden">
         <Image
           src={data?.thumbnailImage}
           alt={data?.productTitle}
