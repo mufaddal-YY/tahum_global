@@ -48,7 +48,7 @@ export default {
       ],
     },
     {
-      name: "thumbnaiImage",
+      name: "thumbnailImage",
       title: "Thumbnail Image",
       type: "image",
       options: {

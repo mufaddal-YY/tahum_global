@@ -5,7 +5,12 @@ import CategoriesBento from "@/components/HomePage/CategoriesBento";
 import HeroBanner from "@/components/HomePage/HeroBanner";
 import WhoWeAre from "@/components/HomePage/WhoWeAre";
 import WhyChooseUs from "@/components/HomePage/WhyChooseUs";
-import { getHomeData } from "@/sanity/fetchedData";
+import {
+  getBlogData,
+  getCategoryData,
+  getCertificationsData,
+  getHomeData,
+} from "@/sanity/fetchedData";
 
 export const metadata = {
   title: "Tahum Global LLP",
@@ -14,15 +19,18 @@ export const metadata = {
 
 export default async function Home() {
   const homeData = await getHomeData();
+  const certificationData = await getCertificationsData();
+  const blogData = await getBlogData();
+  const categoryData = await getCategoryData();
   return (
     <main>
       <HeroBanner homeData={homeData} />
-      <CategoriesBento />
-      <WhoWeAre />
-      <WhyChooseUs />
-      <Certifications />
-      <BlogSection />
-      <Cta />
+      <CategoriesBento categoryData={categoryData} />
+      <WhoWeAre homeData={homeData} />
+      <WhyChooseUs homeData={homeData} />
+      <Certifications certificationData={certificationData} />
+      <BlogSection blogData={blogData} />
+      <Cta /> {/*done*/}
     </main>
   );
 }

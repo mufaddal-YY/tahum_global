@@ -17,8 +17,9 @@ import {
   DropdownMenuSub,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Separator } from "../ui/separator";
 
-const MobileNav = () => {
+const MobileNav = ({ categoryData }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -33,27 +34,38 @@ const MobileNav = () => {
             <SheetClose>Home</SheetClose>
           </Link>
 
+          {/* {categoryData?.map((items) => (
+              
+                <Link
+                  href={`/categories/${items?.slug}`}
+                  className="text-md pl-6 font-semibold text-white px-4 py-2 ease-in-out">
+                  <SheetClose>{items?.headline}</SheetClose>
+                </Link>
+             
+            ))} */}
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <span className="text-md cursor-pointer flex flex-row items-center gap-2 font-semibold text-white px-4 py-2 transition-colors duration-600 ease-in-out">
-                Services <IoIosArrowDown />
+                Categories <IoIosArrowDown />
               </span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-106">
+            <DropdownMenuContent className="w-72">
               <DropdownMenuGroup>
-                {/* {servicesData.map((items) => (
-                  <DropdownMenuSub key={items.name}>
+                {categoryData?.map((items) => (
+                  <DropdownMenuSub key={items?.headline}>
                     <Link
                       className="cursor-pointer"
-                      href={`/services/${items.link}`}>
+                      href={`/categories/${items?.slug}`}>
                       <DropdownMenuItem>
                         <SheetClose>
-                          <span>{items.name}</span>
+                          <span>{items?.headline}</span>
                         </SheetClose>
                       </DropdownMenuItem>
                     </Link>
+                    <Separator className="my-1" />
                   </DropdownMenuSub>
-                ))} */}
+                ))}
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>

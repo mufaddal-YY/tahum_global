@@ -3,10 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/logo.png";
 import { MdEmail, MdCall } from "react-icons/md";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Footer = () => {
-
+const Footer = ({ categoryData }) => {
   return (
     <section className="py-4 bg-white">
       <div className="container">
@@ -20,12 +19,17 @@ const Footer = () => {
             <div className="py-2">
               <div className="flex flex-row justify-start gap-4">
                 <Link target="_blank" href={""} className="flex items-center">
-                  <div className="border-2 rounded-full p-2 hover:border-[#35750E] hover:text-[#35750E]">
+                  <div className="border-2 rounded-full p-2 hover:border-[#1D3974] hover:text-[#1D3974]">
+                    <FaLinkedin />
+                  </div>
+                </Link>
+                <Link target="_blank" href={""} className="flex items-center">
+                  <div className="border-2 rounded-full p-2 hover:border-[#1D3974] hover:text-[#1D3974]">
                     <FaInstagram />
                   </div>
                 </Link>
                 <Link target="_blank" href={""} className="flex items-center">
-                  <div className="border-2 rounded-full p-2 hover:border-[#35750E] hover:text-[#35750E]">
+                  <div className="border-2 rounded-full p-2 hover:border-[#1D3974] hover:text-[#1D3974]">
                     <FaFacebookF />
                   </div>
                 </Link>
@@ -35,16 +39,18 @@ const Footer = () => {
           <div className="flex flex-col gap-2 mb-4 w-full md:w-1/2 lg:w-1/4 p-2">
             <div className="mb-2 border-b-[1px] border-gray-400">
               <h3 className="text-[18px] uppercase md:text-md font-semibold mb-4">
-                Quick Links
+                Categories
               </h3>
             </div>
             <div className="py-2">
               <ul className="flex flex-col gap-4 text-sm">
-                {/* {servicesData.map((item) => (
-                  <li className="text-md capitalize" key={item?.name}>
-                    <Link href={`/${item?.link}`}>{item?.name}</Link>
+                {categoryData.map((item) => (
+                  <li className="text-md capitalize" key={item?.headline}>
+                    <Link href={`/categories/${item?.slug}`}>
+                      {item?.headline}
+                    </Link>
                   </li>
-                ))} */}
+                ))}
               </ul>
             </div>
           </div>
@@ -88,13 +94,11 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="text-md">
-                  <Link
-                    href={`mailto:arwa@vord.marketing`}
-                    className="flex gap-2">
+                  <Link href={`/`} className="flex gap-2">
                     <span className="text-xl text-primary">
                       <MdEmail />
                     </span>
-                    Email us: hello@vord.marketing
+                    Email us: info@tahumglobal.com
                   </Link>
                 </li>
               </ul>

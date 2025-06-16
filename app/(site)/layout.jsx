@@ -7,6 +7,8 @@ import Header from "@/components/Nav/Header";
 import Footer from "@/components/Nav/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { getCategoryData } from "@/sanity/fetchedData";
+import ProgressBars from "@/components/Nav/ProgressBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,20 +16,21 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const categoryData = await getCategoryData();
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
-        <TopBar/>
-        <Header />
+      <body className={`${poppins.className}`}>
+        <TopBar />
+        <Header categoryData={categoryData} />
         <main className="mt-26">
           {children}
           <Toaster closeButton position="top-right" richColors />
         </main>
-        <Footer />
-        {/* <Suspense>
+        <Footer categoryData={categoryData} />
+        <Suspense>
           <ProgressBars />
-        </Suspense> */}
+        </Suspense>
       </body>
     </html>
   );

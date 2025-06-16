@@ -67,17 +67,8 @@ export async function getCategoryData() {
          headline,
          subHeadline,
          "slug": slug.current,
-         "thumnailImage": thumnailImage.asset->url,
-         products[]{
-          productTitle,
-          "productSlug": productSlug.current,
-          subTitle,
-          "thumbnailImage": thumbnailImage.asset->url,
-          productImages[]{
-           "image": image.asset->url,
-           alt,
-          },
-         },
+         "thumbnailImage": thumbnailImage.asset->url,
+         
         }`,
     {},
     defaultFetchOptions
@@ -97,7 +88,7 @@ export async function getCategoryDetailData(slug) {
          subHeadline,
          "slug": slug.current,
          categoryContent,
-         "thumnailImage": thumnailImage.asset->url,
+         "thumbnailImage": thumbnailImage.asset->url,
          products[]{
           productTitle,
           "productSlug": productSlug.current,
@@ -116,7 +107,6 @@ export async function getCategoryDetailData(slug) {
           },
          },
         }`,
-    {},
     { slug, defaultFetchOptions }
   );
 }
@@ -125,7 +115,7 @@ export async function getProductDetailData(productSlug) {
   return client.fetch(
     groq`
       *[_type == "categories" && products[].productSlug.current match $productSlug][0] {
-        "product": products[productSlug.current == $productSlug][0] {
+        "products": products[productSlug.current == $productSlug][0] {
           productTitle,
           "productSlug": productSlug.current,
           subTitle,
@@ -144,7 +134,7 @@ export async function getProductDetailData(productSlug) {
         }
       }
     `,
-    { productSlug }
+    { productSlug, defaultFetchOptions }
   );
 }
 

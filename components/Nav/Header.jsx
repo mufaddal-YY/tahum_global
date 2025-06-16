@@ -15,8 +15,9 @@ import { MdArrowForward } from "react-icons/md";
 
 import { Button } from "../ui/button";
 import MobileNav from "./MobileNav";
+import { Separator } from "../ui/separator";
 
-const Header = () => {
+const Header = ({ categoryData }) => {
   return (
     <main className="bg-white fixed w-full top-10 z-[1000]">
       <header className="container py-1">
@@ -37,28 +38,29 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <span className="text-md mx-2 cursor-pointer flex flex-row items-center gap-2 font-semibold text-primary px-4 py-2 transition-colors duration-600 ease-in-out">
-                  Services <IoIosArrowDown />
+                  Categories <IoIosArrowDown />
                 </span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-106">
+              <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
-                  {/* {servicesData.map((items) =>
-                    items?.link ? (
-                      <DropdownMenuSub key={items?.name}>
+                  {categoryData.map((items) =>
+                    items?.slug ? (
+                      <DropdownMenuSub key={items?.headline}>
                         <Link
                           className="cursor-pointer"
                           href={
-                            items.link.startsWith("/")
-                              ? items.link
-                              : `/services/${items.link}`
+                            items?.slug.startsWith("/")
+                              ? items.slug
+                              : `/categories/${items.slug}`
                           }>
                           <DropdownMenuItem>
-                            <span>{items?.name}</span>
+                            <span>{items?.headline}</span>
                           </DropdownMenuItem>
                         </Link>
+                        <Separator className="my-1" />
                       </DropdownMenuSub>
                     ) : null
-                  )} */}
+                  )}
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -87,7 +89,7 @@ const Header = () => {
             </Button>
           </Link>
           <div className="lg:hidden flex">
-            <MobileNav />
+            <MobileNav categoryData={categoryData} />
           </div>
         </article>
       </header>
