@@ -20,7 +20,7 @@ const ProductDetailSection = ({ detailData }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    dots: true,
+    dots: false,
     lazyLoad: true,
     autoplay: true,
     autoplaySpeed: 3300,
