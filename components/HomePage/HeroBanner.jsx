@@ -83,7 +83,7 @@ const HeroBanner = ({ homeData }) => {
                           </Button>
                         </Link>
                       </div>
-                      <div className="py-8 flex md:hidden lg:hidden">
+                      {/* <div className="py-8 flex md:hidden lg:hidden">
                         <Carousel
                           plugins={[
                             Autoplay({
@@ -99,7 +99,7 @@ const HeroBanner = ({ homeData }) => {
                             ))}
                           </CarouselContent>
                         </Carousel>
-                      </div>{" "}
+                      </div>{" "} */}
                     </div>
                     {/* ProductSliderCard Positioned Bottom-Right */}
                     <div className="absolute hidden md:flex lg:flex bottom-6 right-0 z-20">
