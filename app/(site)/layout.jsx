@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
       <body className={`${poppins.className}`}>
         <TopBar />
         <Header categoryData={categoryData} />
-        <main className="mt-26">
+        <main className="mt-28">
           {children}
           <Toaster closeButton position="top-right" richColors />
         </main>

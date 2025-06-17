@@ -12,20 +12,30 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdArrowForward } from "react-icons/md";
-
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import MobileNav from "./MobileNav";
 import { Separator } from "../ui/separator";
 
 const Header = ({ categoryData }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <main className="bg-white fixed w-full top-10 z-[1000]">
+    <main className={`fixed w-full top-10 z-[1000] transition-all duration-500 ${isScrolled ? 'bg-white/50 backdrop-blur-lg shadow-custom' : 'bg-transparent'}`}>
       <header className="container py-1">
         <article className="flex flex-row justify-between items-center gap-4">
           <div className="flex flex-row justify-between items-center gap-4">
             <div>
               <Link href="/">
-                <Image src={Logo} width={100} height={100} alt="Logo" />
+                <Image src={Logo} width={120} height={100} alt="Logo" />
               </Link>
             </div>
           </div>

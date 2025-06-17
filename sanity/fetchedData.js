@@ -217,7 +217,7 @@ export async function getBlogData() {
 
 export async function getBlogDetailData(slug) {
   const result = await client.fetch(
-    groq`*[_type == "blogs" && slug.current == $slug][0]{
+    groq`*[_type == "blog" && slug.current == $slug][0]{
       _id,
       _createdAt,
       title,
@@ -229,14 +229,9 @@ export async function getBlogDetailData(slug) {
       excerpt,
       "mainImage": mainImage.asset->url,
       author,
-      content[]{
-        _type == "image" => {
-          "asset": asset->url
-        }
-      }
+      content,
     }`,
-    {},
-    { slug, defaultFetchOptions }
+    { slug }
   );
   return result;
 }
