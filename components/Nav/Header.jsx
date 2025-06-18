@@ -16,6 +16,17 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import MobileNav from "./MobileNav";
 import { Separator } from "../ui/separator";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import EnquiryForm from "../Common/EnquiryForm";
 
 const Header = ({ categoryData }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +40,8 @@ const Header = ({ categoryData }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <main className={`fixed w-full top-10 z-[1000] transition-all duration-500 ${isScrolled ? 'bg-white/50 backdrop-blur-lg shadow-custom' : 'bg-transparent'}`}>
+    <main
+      className={`fixed w-full top-10 z-[1000] transition-all duration-500 ${isScrolled ? "bg-white/50 backdrop-blur-lg shadow-custom" : "bg-transparent"}`}>
       <header className="container py-1">
         <article className="flex flex-row justify-between items-center gap-4">
           <div className="flex flex-row justify-between items-center gap-4">
@@ -90,14 +102,24 @@ const Header = ({ categoryData }) => {
               Contact
             </Link>
           </nav>
-          <Link href={"/contact"} className="lg:flex hidden">
-            <Button
-              size="lg"
-              variant="primary"
-              className="flex gap-2 text-white bg-primary font-semibold items-center">
-              Enquire <MdArrowForward />
-            </Button>
-          </Link>
+          
+          <div className="lg:flex hidden">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  variant="primary"
+                  className="flex gap-2 text-white bg-primary font-semibold items-center">
+                  Enquire <MdArrowForward />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="">
+                <EnquiryForm />
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {/* <Link href={"/contact"} className="lg:flex hidden"></Link> */}
           <div className="lg:hidden flex">
             <MobileNav categoryData={categoryData} />
           </div>

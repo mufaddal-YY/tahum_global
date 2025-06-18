@@ -77,7 +77,7 @@ const EnquiryForm = () => {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel className="text-white">First Name</FormLabel>
                         <FormControl>
                           <Input placeholder="First name" {...field} />
                         </FormControl>
@@ -91,7 +91,7 @@ const EnquiryForm = () => {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel className="text-white">Last Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Last name" {...field} />
                         </FormControl>
@@ -108,7 +108,7 @@ const EnquiryForm = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel className="text-white">Email</FormLabel>
                         <FormControl>
                           <Input placeholder="Email" {...field} />
                         </FormControl>
@@ -122,7 +122,7 @@ const EnquiryForm = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone</FormLabel>
+                        <FormLabel className="text-white">Phone</FormLabel>
                         <FormControl>
                           <Input placeholder="Phone" {...field} />
                         </FormControl>
@@ -138,7 +138,7 @@ const EnquiryForm = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel className="text-white">Message</FormLabel>
                         <FormControl>
                           <Textarea placeholder="Message here" {...field} />
                         </FormControl>

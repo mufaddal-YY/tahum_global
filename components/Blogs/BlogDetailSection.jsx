@@ -21,13 +21,15 @@ const BlogDetailSection = ({ blogData, blogDetail }) => {
             </div>
 
             {/* Title & Meta */}
-            <h1 className="text-4xl font-semibold mb-4">{blogDetail?.title}</h1>
-            <div className="flex flex-row justify-between items-center">
+            <h1 className="text-2xl lg:text-3xl font-semibold mb-4">
+              {blogDetail?.title}
+            </h1>
+            <div className="flex flex-row gap-2 items-center">
               <p className="text-gray-500 text-sm mb-6">
-                {new Date(blogDetail?.publishedAt).toLocaleDateString()}
+                ~ by {blogDetail?.author} |
               </p>
               <p className="text-gray-500 text-sm mb-6">
-                ~ by {blogDetail?.author}
+                {new Date(blogDetail?.publishedAt).toLocaleDateString()}
               </p>
             </div>
 
@@ -40,7 +42,7 @@ const BlogDetailSection = ({ blogData, blogDetail }) => {
           {/* Sidebar */}
           <aside className="w-full lg:w-1/3 ">
             <div className="flex flex-col gap-4 sticky-enquiry-form">
-              {blogData.slice(0, 4).map((blog) => (
+              {blogData.slice(0, 3).map((blog) => (
                 <div
                   key={blog._id}
                   className="flex gap-4 rounded-2xl border-2 border-gray-100">
@@ -51,12 +53,12 @@ const BlogDetailSection = ({ blogData, blogDetail }) => {
                     height={150}
                     className="rounded-xl bg-primary object-cover w-[150px] h-[150px] transform transition-transform duration-500 ease-in-out hover:scale-105"
                   />
-                  <div className="flex flex-col gap-4 h-[100px] p-4">
+                  <div className="flex flex-col justify-between gap-4 h-[100px] p-4">
                     <h4 className="text-sm font-regular text-gray-800 lg:pt-2">
                       {blog.title}
                     </h4>
-                    
-                    <button className="text-primary text-sm pb-2 font-medium flex items-center gap-1">
+
+                    <button className="text-primary text-md pb-2 font-medium flex items-center gap-1">
                       Read more <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>

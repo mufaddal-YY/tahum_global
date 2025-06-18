@@ -54,7 +54,7 @@ const CategoriesBento = ({ categoryData }) => {
         </div>
 
         {/* Second Column (Wider) */}
-        <div className="flex flex-col justify-center col-span-1 lg:col-span-1 ">
+        <div className="flex-col justify-center col-span-1 lg:col-span-1 hidden md:flex lg:flex">
           <Slider {...settings} className="arrow-none">
             {categoryData.map((data, idx) => (
               <div

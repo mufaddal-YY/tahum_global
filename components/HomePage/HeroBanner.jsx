@@ -13,6 +13,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import EnquiryForm from "../Common/EnquiryForm";
 
 const HeroBanner = ({ homeData }) => {
   const settings = {
@@ -34,56 +36,69 @@ const HeroBanner = ({ homeData }) => {
       {homeData.map((item, i) => (
         <section key={i}>
           <article>
-            <Slider {...settings} className="arrow-none">
-              {item?.heroSlider?.map((data, index) => (
-                <div
-                  key={index}
-                  className="relative h-[80vh] lg:h-[90vh] w-full ">
-                  {/* Background Image */}
-                  <Image
+            <div className="relative h-[80vh] lg:h-[90vh] w-full ">
+              {/* Background Image */}
+              {/* <Image
                     className="object-cover rounded-[24px]"
                     objectPosition="center center"
                     layout="fill"
                     src={data?.sliderImage}
                     alt={data?.alt}
-                  />
+                  /> */}
+              {/* Background Video */}
+              <video
+                className="object-cover w-full h-full rounded-[24px]"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto">
+                <source src={"/heroVideo.mp4"} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
 
-                  {/* Black overlay */}
-                  <div className="absolute rounded-[24px] inset-0 bg-black opacity-70"></div>
+              {/* Black overlay */}
+              <div className="absolute rounded-[24px] inset-0 bg-black opacity-50"></div>
 
-                  {/* Text Content */}
-                  <div className="absolute inset-0 flex items-center container">
-                    <div className="text-white w-full lg:w-1/2 z-10">
-                      <div className="py-4">
-                        <span className="border text-sm border-white rounded-full py-1 px-2 capitalize">
-                          {item?.welcomeStatement}
-                        </span>
-                      </div>
-                      <h1 className="lg:text-5xl md:text-4xl text-[32px] leading-tight font-semibold mb-4">
-                        {item?.headline}
-                      </h1>
-                      <p className="lg:w-3/4 text-lg w-full leading-snug font-regular mb-8">
-                        {item?.subHeadline}
-                      </p>
-                      <div className="flex gap-2">
-                        <Link href={"/categories"}>
-                          <Button
-                            size="lg"
-                            variant="secondary"
-                            className="bg-white cursor-pointer">
-                            Explore Products
-                          </Button>
-                        </Link>
-                        <Link href={"/categories"}>
-                          <Button
-                            size="lg"
-                            variant="outlined"
-                            className="border border-white cursor-pointer">
-                            Get Quote <MdArrowForward />
-                          </Button>
-                        </Link>
-                      </div>
-                      {/* <div className="py-8 flex md:hidden lg:hidden">
+              {/* Text Content */}
+              <div className="absolute inset-0 flex items-center container">
+                <div className="text-white w-full lg:w-1/2 z-10">
+                  <div className="py-4">
+                    <span className="border text-sm border-white rounded-full py-1 px-2 capitalize">
+                      {item?.welcomeStatement}
+                    </span>
+                  </div>
+                  <h1 className="lg:text-5xl md:text-4xl text-[32px] leading-tight font-semibold mb-4">
+                    {item?.headline}
+                  </h1>
+                  <p className="lg:w-3/4 text-lg w-full leading-snug font-regular mb-6">
+                    {item?.subHeadline}
+                  </p>
+                  <div className="flex gap-2">
+                    <Link href={"/categories/millets"}>
+                      <Button
+                        size="lg"
+                        variant="secondary"
+                        className="bg-white cursor-pointer">
+                        Explore Products
+                      </Button>
+                    </Link>
+
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button
+                          size="lg"
+                          variant="outlined"
+                          className="border border-white cursor-pointer">
+                          Get Quote <MdArrowForward />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="">
+                        <EnquiryForm />
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                  {/* <div className="py-8 flex md:hidden lg:hidden">
                         <Carousel
                           plugins={[
                             Autoplay({
@@ -100,29 +115,27 @@ const HeroBanner = ({ homeData }) => {
                           </CarouselContent>
                         </Carousel>
                       </div>{" "} */}
-                    </div>
-                    {/* ProductSliderCard Positioned Bottom-Right */}
-                    <div className="absolute hidden md:flex lg:flex bottom-6 right-0 z-20">
-                      <Carousel
-                        plugins={[
-                          Autoplay({
-                            delay: 3000,
-                          }),
-                        ]}
-                        className="w-full max-w-md">
-                        <CarouselContent>
-                          {Array.from({ length: 5 }).map((_, index) => (
-                            <CarouselItem key={index}>
-                              <HeroProductSlider />
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                      </Carousel>
-                    </div>{" "}
-                  </div>
                 </div>
-              ))}
-            </Slider>
+                {/* ProductSliderCard Positioned Bottom-Right */}
+                <div className="absolute hidden md:flex lg:flex bottom-6 right-0 z-20">
+                  <Carousel
+                    plugins={[
+                      Autoplay({
+                        delay: 3000,
+                      }),
+                    ]}
+                    className="w-full max-w-md">
+                    <CarouselContent>
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <CarouselItem key={index}>
+                          <HeroProductSlider />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                </div>{" "}
+              </div>
+            </div>
           </article>
         </section>
       ))}

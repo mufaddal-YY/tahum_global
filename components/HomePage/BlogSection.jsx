@@ -52,10 +52,10 @@ const BlogSection = ({ blogData }) => {
                 className="rounded-xl bg-primary object-cover w-[200px] h-[200px] transform transition-transform duration-500 ease-in-out hover:scale-105"
               />
               <div className="flex flex-col justify-between h-[200px] p-4 flex-1">
-                <h4 className="text-md lg:text-xl font-semibold text-gray-800 lg:pt-2">
+                <h4 className="text-sm md:text-md lg:text-xl font-regular text-gray-800 lg:pt-2">
                   {blog.title}
                 </h4>
-                <button className="text-primary text-lg pb-2 font-medium flex items-center gap-1">
+                <button className="text-primary text-md lg:text-lg pb-2 font-medium flex items-center gap-1">
                   Read more <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

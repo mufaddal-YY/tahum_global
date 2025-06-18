@@ -66,7 +66,7 @@ const Certifications = ({ certificationData }) => {
                     />
 
                     <div className="w-full bg-white text-center pt-4">
-                      <p className="text-lg font-semibold text-primary">
+                      <p className="text-xl font-semibold text-primary">
                         {data?.organizationTitle}
                       </p>
                     </div>
