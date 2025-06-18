@@ -59,7 +59,7 @@ const EnquiryForm = () => {
   };
 
   return (
-    <main className="bg-transparent p-3 lg:p-6">
+    <main className="bg-transparent p-3">
       <section>
         <article>
           <h4 className="text-3xl font-bold py-2 mb-4 text-left text-white">

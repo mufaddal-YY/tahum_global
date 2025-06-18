@@ -96,13 +96,13 @@ const Header = ({ categoryData }) => {
               className="text-md mx-2 font-semibold text-primary px-4 py-2 transition-colors duration-600 ease-in-out">
               Blogs
             </Link>
-            <Link
+            {/* <Link
               href={"/contact"}
               className="text-md mx-2 font-semibold text-primary px-4 py-2 transition-colors duration-600 ease-in-out">
               Contact
-            </Link>
+            </Link> */}
           </nav>
-          
+
           <div className="lg:flex hidden">
             <Dialog>
               <DialogTrigger asChild>

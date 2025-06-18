@@ -34,12 +34,32 @@ const Footer = ({ categoryData }) => {
                   </div>
                 </Link>
               </div>
+              <div className="my-4">
+                <ul className="flex flex-col gap-4 text-sm">
+                  <li className="text-md capitalize">
+                    <Link href={`tel:+91-1234567890`} className="flex gap-2">
+                      <span className="text-xl text-primary">
+                        <MdCall />
+                      </span>
+                      Call us: +91-1234567890
+                    </Link>
+                  </li>
+                  <li className="text-md">
+                    <Link href={`/`} className="flex gap-2">
+                      <span className="text-xl text-primary">
+                        <MdEmail />
+                      </span>
+                      Email us: info@tahumglobal.com
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-2 mb-4 w-full md:w-1/2 lg:w-1/4 p-2">
             <div className="mb-2 border-b-[1px] border-gray-400">
               <h3 className="text-[18px] uppercase md:text-md font-semibold mb-4">
-                Categories
+                Quick Links
               </h3>
             </div>
             <div className="py-2">
@@ -80,11 +100,11 @@ const Footer = ({ categoryData }) => {
           <div className="gap-2 mb-4 w-full md:w-1/2 lg:w-1/4 p-2">
             <div className="mb-2 border-b-[1px] border-gray-400">
               <h3 className="text-[18px] uppercase md:text-md font-semibold mb-4">
-                Contact Information
+                Channel Parteners
               </h3>
             </div>
             <div className="py-2">
-              <ul className="flex flex-col gap-4 text-sm">
+              {/* <ul className="flex flex-col gap-4 text-sm">
                 <li className="text-md capitalize">
                   <Link href={`tel:+91-1234567890`} className="flex gap-2">
                     <span className="text-xl text-primary">
@@ -101,7 +121,7 @@ const Footer = ({ categoryData }) => {
                     Email us: info@tahumglobal.com
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

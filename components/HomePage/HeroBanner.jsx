@@ -36,7 +36,7 @@ const HeroBanner = ({ homeData }) => {
       {homeData.map((item, i) => (
         <section key={i}>
           <article>
-            <div className="relative h-[80vh] lg:h-[90vh] w-full ">
+            <div className="relative h-[100vh] lg:h-[90vh] w-full ">
               {/* Background Image */}
               {/* <Image
                     className="object-cover rounded-[24px]"
@@ -58,7 +58,7 @@ const HeroBanner = ({ homeData }) => {
               </video>
 
               {/* Black overlay */}
-              <div className="absolute rounded-[24px] inset-0 bg-black opacity-50"></div>
+              <div className="absolute rounded-[24px] inset-0 bg-black opacity-60"></div>
 
               {/* Text Content */}
               <div className="absolute inset-0 flex items-center container">
@@ -93,7 +93,7 @@ const HeroBanner = ({ homeData }) => {
                           Get Quote <MdArrowForward />
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="">
+                      <DialogContent className="max-h-[600px] overflow-y-scroll">
                         <EnquiryForm />
                       </DialogContent>
                     </Dialog>
