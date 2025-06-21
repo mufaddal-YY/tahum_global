@@ -235,3 +235,74 @@ export async function getBlogDetailData(slug) {
   );
   return result;
 }
+
+export async function getContactData() {
+  const result = await client.fetch(
+    groq`*[_type == "contact"]{
+         _id,
+         _createdAt,
+        email,
+        contact,
+        whatsapp,
+        address,
+        linkedin,
+        instagram,
+        facebook,
+        youtube,
+        }`,
+    {},
+    defaultFetchOptions
+  );
+  return result;
+}
+
+export async function getRefundPolicyData() {
+  const result = await client.fetch(
+    groq`*[_type == "refundPolicy"]{
+         _id,
+         _createdAt,
+         metaTitle,
+         metaDescription,
+         metaKeywords,
+         headline,
+         content,
+        }`,
+    {},
+    defaultFetchOptions
+  );
+  return result;
+}
+
+export async function getTermsData() {
+  const result = await client.fetch(
+    groq`*[_type == "terms"]{
+         _id,
+         _createdAt,
+         metaTitle,
+         metaDescription,
+         metaKeywords,
+         headline,
+         content,
+        }`,
+    {},
+    defaultFetchOptions
+  );
+  return result;
+}
+
+export async function getPrivacyData() {
+  const result = await client.fetch(
+    groq`*[_type == "privacyPolicy"]{
+         _id,
+         _createdAt,
+         metaTitle,
+         metaDescription,
+         metaKeywords,
+         headline,
+         content,
+        }`,
+    {},
+    defaultFetchOptions
+  );
+  return result;
+}
