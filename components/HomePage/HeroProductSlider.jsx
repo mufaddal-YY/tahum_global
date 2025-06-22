@@ -11,12 +11,12 @@ const HeroProductSlider = ({
   return (
     <div className="w-full lg:w-3/4 lg:ml-auto rounded-xl border border-white bg-white/10 backdrop-blur-md p-2 flex items-center gap-4">
       {/* Product Image */}
-      <div className="bg-white w-[180px] h-[180px] rounded-xl">
+      <div className="bg-white w-[180px] h-auto rounded-xl">
         <Image
           src={thumbnailImage} // replace this with your actual image path
           alt="Product"
-          width={220}
-          height={220}
+          width={180}
+          height={180}
           className="rounded-xl"
         />
       </div>
