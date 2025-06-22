@@ -16,7 +16,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import EnquiryForm from "../Common/EnquiryForm";
 
-const HeroBanner = ({ homeData }) => {
+const HeroBanner = ({ homeData, categoryDetail, productsData }) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -117,6 +117,7 @@ const HeroBanner = ({ homeData }) => {
                       </div>{" "} */}
                 </div>
                 {/* ProductSliderCard Positioned Bottom-Right */}
+
                 <div className="absolute hidden md:flex lg:flex bottom-6 right-0 z-20">
                   <Carousel
                     plugins={[
@@ -126,14 +127,20 @@ const HeroBanner = ({ homeData }) => {
                     ]}
                     className="w-full max-w-md">
                     <CarouselContent>
-                      {Array.from({ length: 5 }).map((_, index) => (
-                        <CarouselItem key={index}>
-                          <HeroProductSlider />
+                      {productsData.map((data, idx) => (
+                        <CarouselItem key={idx}>
+                          <HeroProductSlider
+                            thumbnailImage={data?.thumbnailImage}
+                            productTitle={data?.productTitle}
+                            subTitle={data?.subTitle}
+                            productSlug={data?.productSlug}
+                            slug={categoryDetail?.slug}
+                          />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
                   </Carousel>
-                </div>{" "}
+                </div>
               </div>
             </div>
           </article>

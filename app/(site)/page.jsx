@@ -23,10 +23,12 @@ export default async function Home() {
   const certificationData = await getCertificationsData();
   const blogData = await getBlogData();
   const categoryData = await getCategoryData();
+  const categoryDetail = await getCategoryDetailData("millets");
+  const productsData = categoryDetail.products;
 
   return (
     <main>
-      <HeroBanner homeData={homeData} />
+      <HeroBanner homeData={homeData} categoryData={categoryDetail} productsData={productsData} />
       <CategoriesBento categoryData={categoryData} />
       <WhoWeAre homeData={homeData} />
       <WhyChooseUs homeData={homeData} />
