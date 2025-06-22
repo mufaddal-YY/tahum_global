@@ -141,7 +141,8 @@ const HeroBanner = ({ homeData, categoryDetail, productsData }) => {
                     </CarouselContent>
                   </Carousel>
                 </div>
-              </div>
+              </div> 
+              {/*  */}
             </div>
           </article>
         </section>
