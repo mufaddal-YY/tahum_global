@@ -20,7 +20,7 @@ const CategoriesBento = ({ categoryData }) => {
     fade: true,
   };
   return (
-    <main className="bg-white">
+    <main className="bg-white" id="categories">
       <section className="container pt-[50px]">
         <div className="w-full">
           <h4 className="text-3xl lg:text-4xl mb-4 text-primary font-semibold">

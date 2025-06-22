@@ -54,13 +54,17 @@ const BlogDetailSection = ({ blogData, blogDetail }) => {
                     className="rounded-xl bg-primary object-cover w-[150px] h-[150px] transform transition-transform duration-500 ease-in-out hover:scale-105"
                   />
                   <div className="flex flex-col justify-between gap-4 h-[100px] p-4">
-                    <h4 className="text-sm font-regular text-gray-800 lg:pt-2">
-                      {blog.title}
-                    </h4>
+                    <Link target="_blank" href={`/blogs/${blog?.slug}`}>
+                      <h4 className="text-sm font-regular text-gray-800 cursor-pointer lg:pt-2">
+                        {blog.title}
+                      </h4>
+                    </Link>
 
-                    <button className="text-primary text-md pb-2 font-medium flex items-center gap-1">
-                      Read more <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <Link target="_blank" href={`/blogs/${blog?.slug}`}>
+                      <button className="text-primary text-md pb-2 font-medium cursor-pointer flex items-center gap-1">
+                        Read more <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               ))}

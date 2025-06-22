@@ -45,7 +45,6 @@ export async function getAboutData() {
          metaTitle,
          metaDescription,
          metaKeywords,
-         welcomeStatement,
          headline,
          aboutContent,
          "aboutImage": aboutImage.asset->url,

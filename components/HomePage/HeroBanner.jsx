@@ -75,7 +75,7 @@ const HeroBanner = ({ homeData }) => {
                     {item?.subHeadline}
                   </p>
                   <div className="flex gap-2">
-                    <Link href={"/categories/millets"}>
+                    <Link href={"/#categories"}>
                       <Button
                         size="lg"
                         variant="secondary"

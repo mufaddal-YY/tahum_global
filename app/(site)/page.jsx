@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/HomePage/WhyChooseUs";
 import {
   getBlogData,
   getCategoryData,
+  getCategoryDetailData,
   getCertificationsData,
   getHomeData,
 } from "@/sanity/fetchedData";
@@ -22,6 +23,7 @@ export default async function Home() {
   const certificationData = await getCertificationsData();
   const blogData = await getBlogData();
   const categoryData = await getCategoryData();
+
   return (
     <main>
       <HeroBanner homeData={homeData} />

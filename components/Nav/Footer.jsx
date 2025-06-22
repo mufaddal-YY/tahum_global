@@ -5,7 +5,7 @@ import Logo from "@/public/logo.png";
 import { MdEmail, MdCall } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Footer = ({ categoryData }) => {
+const Footer = ({ categoryData, contactData }) => {
   return (
     <section className="py-4 bg-white">
       <div className="container">
@@ -16,9 +16,10 @@ const Footer = ({ categoryData }) => {
                 <Image width={100} height={50} src={Logo} alt="footer logo" />
               </Link>
             </div>
-            <div className="py-2">
+            {contactData?.map((data, idx) => (
+            <div className="py-2" key={idx}>
               <div className="flex flex-row justify-start gap-4">
-                <Link target="_blank" href={""} className="flex items-center">
+                <Link target="_blank" href={`${data?.linkedin}`} className="flex items-center">
                   <div className="border-2 rounded-full p-2 hover:border-[#1D3974] hover:text-[#1D3974]">
                     <FaLinkedin />
                   </div>
@@ -37,11 +38,11 @@ const Footer = ({ categoryData }) => {
               <div className="my-4">
                 <ul className="flex flex-col gap-4 text-sm">
                   <li className="text-md capitalize">
-                    <Link href={`tel:+91-1234567890`} className="flex gap-2">
+                    <Link href={`tel:${data?.contact}`} className="flex gap-2">
                       <span className="text-xl text-primary">
                         <MdCall />
                       </span>
-                      Call us: +91-1234567890
+                      Call us: {data?.contact}
                     </Link>
                   </li>
                   <li className="text-md">
@@ -49,12 +50,13 @@ const Footer = ({ categoryData }) => {
                       <span className="text-xl text-primary">
                         <MdEmail />
                       </span>
-                      Email us: info@tahumglobal.com
+                      Email us: {data?.email}
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
+            ))}
           </div>
           <div className="flex flex-col gap-2 mb-4 w-full md:w-1/2 lg:w-1/4 p-2">
             <div className="mb-2 border-b-[1px] border-gray-400">
@@ -92,7 +94,7 @@ const Footer = ({ categoryData }) => {
                   <Link href={"/refund-policy"}>Refund Policy</Link>
                 </li>
                 <li className="text-md capitalize">
-                  <Link href={"/terms"}>Terms and Conditions</Link>
+                  <Link href={"/terms-conditions"}>Terms and Conditions</Link>
                 </li>
               </ul>
             </div>
