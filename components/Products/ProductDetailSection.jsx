@@ -31,22 +31,35 @@ const ProductDetailSection = ({ detailData }) => {
         <div className="flex gap-2 flex-col lg:flex-row rounded-xl border-2 border-gray-100 shadow-custom">
           <div className="w-full lg:w-1/3 p-2">
             <div className="flex flex-col gap-2 sticky-enquiry-form">
-              <Slider {...settings} className="arrow-none">
-                {detailData?.productImages?.map((data, idx) => (
-                  <div
-                    className="relative w-full h-[500px] overflow-hidden rounded-lg py-2"
-                    key={idx}>
-                    <Image
-                      src={data?.image}
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center center"
-                      alt="Product Image"
-                      className="rounded-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
-                    />{" "}
-                  </div>
-                ))}
-              </Slider>
+              {detailData?.productImages?.length > 1 ? (
+                <Slider {...settings} className="arrow-none">
+                  {detailData?.productImages.map((data, idx) => (
+                    <div
+                      className="relative w-full h-[500px] overflow-hidden rounded-lg py-2"
+                      key={idx}>
+                      <Image
+                        src={data?.image}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center center"
+                        alt={`Product Image ${idx + 1}`}
+                        className="rounded-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </Slider>
+              ) : (
+                <div className="relative w-full h-[500px] overflow-hidden rounded-lg py-2">
+                  <Image
+                    src={detailData?.productImages?.[0]?.image}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center center"
+                    alt="Product Image"
+                    className="rounded-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+                  />
+                </div>
+              )}
             </div>
           </div>
 
